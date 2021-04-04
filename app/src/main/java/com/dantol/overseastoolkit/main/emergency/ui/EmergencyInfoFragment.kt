@@ -4,14 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dantol.overseastoolkit.R
 import com.dantol.overseastoolkit.databinding.EmergencyInfoFragmentBinding
 import com.dantol.overseastoolkit.main.emergency.database.model.EmergencyInfo
-import com.dantol.overseastoolkit.utils.Logger
+import com.dantol.overseastoolkit.utils.applyFilter
 import com.skydoves.powerspinner.DefaultSpinnerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -73,32 +72,17 @@ class EmergencyInfoFragment : Fragment() {
 			emergencyInfo.visibility = View.VISIBLE
 			emergencyInfoSelector.visibility = View.VISIBLE
 			setEmergencyInfoCountries(emergencyInfoList)
-			searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
-				androidx.appcompat.widget.SearchView.OnQueryTextListener {
-				override fun onQueryTextSubmit(query: String?): Boolean {
-					filterCountries(query, emergencyInfoList)
-					return true
+			searchBar.applyFilter(emergencyInfoList,
+				{ emergencyInfo, query ->
+					emergencyInfo.countryName.startsWith(
+						query,
+						ignoreCase = true
+					)
 				}
-
-				override fun onQueryTextChange(newText: String?): Boolean {
-					filterCountries(newText, emergencyInfoList)
-					return true
-				}
-
-			})
+			) {
+				setEmergencyInfoCountries(it)
+			}
 		}
-	}
-
-	private fun filterCountries(query: String?, emergencyInfoList: List<EmergencyInfo>) {
-		Logger.i("query is $query")
-		binding.setEmergencyInfoCountries(
-			if (query != null)
-				emergencyInfoList.filter {
-					it.countryName.startsWith(query, ignoreCase = true)
-				}
-			else
-				emergencyInfoList
-		)
 	}
 
 	private fun EmergencyInfoFragmentBinding.setEmergencyInfoCountries(

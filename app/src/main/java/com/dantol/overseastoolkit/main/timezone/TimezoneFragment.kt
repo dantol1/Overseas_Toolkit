@@ -9,8 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dantol.overseastoolkit.R
 import com.dantol.overseastoolkit.databinding.TimezoneFragmentBinding
+import com.dantol.overseastoolkit.utils.applyFilter
 import com.skydoves.powerspinner.DefaultSpinnerAdapter
+import com.skydoves.powerspinner.PowerSpinnerView
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 
 @AndroidEntryPoint
 class TimezoneFragment : Fragment() {
@@ -37,13 +40,26 @@ class TimezoneFragment : Fragment() {
 	override fun onResume() {
 		super.onResume()
 		viewModel.getTimezones {
-			binding.timeZoneSelector.apply {
-				setSpinnerAdapter(DefaultSpinnerAdapter(this))
-				setItems(it.map { timezone -> timezone.displayName })
-				setOnSpinnerItemSelectedListener<String> { _, _, newIndex, _ ->
-					binding.selectedTime.clock.timeZone = it[newIndex].id
+			binding.apply {
+				timeZoneSelector.apply {
+					setSpinnerAdapter(DefaultSpinnerAdapter(this))
+					setTimezones(it)
+				}
+				searchBar.applyFilter(it, { timeZone, s ->
+					timeZone.displayName.contains(s, ignoreCase = true)
+				}) { newTimezones ->
+					timeZoneSelector.setTimezones(newTimezones)
 				}
 			}
 		}
+	}
+
+	private fun PowerSpinnerView.setTimezones(it: List<TimeZone>) {
+		setItems(it.map { timezone -> timezone.displayName })
+		setOnSpinnerItemSelectedListener<String> { _, _, newIndex, _ ->
+			binding.selectedTime.clock.timeZone = it[newIndex].id
+		}
+		if (it.isNotEmpty())
+			selectItemByIndex(0)
 	}
 }
