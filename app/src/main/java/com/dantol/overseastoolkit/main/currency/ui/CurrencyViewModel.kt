@@ -153,7 +153,7 @@ class CurrencyViewModel @Inject constructor(
 		if (amountString != null && fromCurrency != null && toCurrency != null) {
 			try {
 				val amount = amountString.toDouble()
-				val exchanged = amount * fromCurrency.toEuroRate * (1 / toCurrency.toEuroRate)
+				val exchanged = amount * toCurrency.toEuroRate * (1 / fromCurrency.toEuroRate)
 				val viewState =
 					currencyFragmentState.value?.viewState?.copy(amountConverted = exchanged)
 
