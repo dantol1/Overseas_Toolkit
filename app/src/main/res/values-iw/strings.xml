@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Overseas Toolkit</string>
+
+    <string name="menu_currency">מטבע חוץ</string>
+    <string name="menu_timezone">איזור זמן</string>
+    <string name="menu_settings">הגדרות</string>
+
+    <string name="from_currency">מטבע מקור</string>
+    <string name="to_currency">מטבע חוץ</string>
+    <string name="swap_currencies">החלף מטבעות</string>
+    <string name="enter_amount">הכנס כמות…</string>
+    <string name="default_currency_amount">0.0</string>
+    <string name="failed_to_get_rates">כישלון בהורדת המידע, אנא בדקו את חיבורכם לרשת</string>
+
+    <string name="select_time_zone">בחרו איזור זמן</string>
+    <string name="local_time">זמן מקומי:</string>
+    <string name="selected_time">זמן נבחר:</string>
+</resources>
