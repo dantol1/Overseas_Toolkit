@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Overseas Toolkit</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_currency">Currency</string>
+    <string name="menu_timezone">Timezone</string>
+    <string name="menu_settings">Settings</string>
+    <string name="from_currency">From Currency</string>
+    <string name="to_currency">To Currency</string>
+    <string name="swap_currencies">Swap Currencies</string>
+    <string name="enter_amount">Enter Amount...</string>
+    <string name="default_currency_amount">0.0</string>
+    <string name="failed_to_get_rates">Failed to get rates, please check your network connection.</string>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_currency"
+            android:icon="@drawable/ic_currency"
+            android:title="@string/menu_currency" />
+        <item
+            android:id="@+id/nav_timezone"
+            android:icon="@drawable/ic_timezone"
+            android:title="@string/menu_timezone" />
+
+    </group>
+</menu>
