@@ -15,4 +15,26 @@
     <string name="select_time_zone">Select TimeZone</string>
     <string name="local_time">Local Time:</string>
     <string name="selected_time">Selected Time:</string>
+
+    <string name="menu_emergency_info">Emergency Info</string>
+    <string name="emergency_info_disclaimer">Disclaimer: This data is provided without any claims of accuracy, you should use this data as guidance, and do your own due diligence.</string>
+    <string name="country_code_title">Country Code:</string>
+    <string name="country_name_title">Country Name:</string>
+    <string name="ambulance_title">Ambulance:</string>
+    <string name="fire_dept_title">Fire Dept. :</string>
+    <string name="police_title">Police:</string>
+    <string name="dispatch_title">Dispatch:</string>
+    <string name="dispatch_gsm_title">Dispatch GSM:</string>
+    <string name="dispatch_fixed_title">Dispatch Fixed:</string>
+
+    <string name="template_emergency_info" translatable="false">
+         ${country_code_title} %s\n
+        ${country_name_title} %s\n
+        ${ambulance_title} %s\n
+        ${fire_dept_title} %s\n
+        ${police_title} %s\n
+        ${dispatch_title} %s\n
+        ${dispatch_gsm_title} %s\n
+        ${dispatch_fixed_title} %s
+    </string>
 </resources>

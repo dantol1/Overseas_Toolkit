@@ -6,6 +6,7 @@ import androidx.room.Room
 import com.dantol.overseastoolkit.AppDatabase
 import com.dantol.overseastoolkit.OverseasApplication.Companion.SHARED_PREFERENCE_KEY
 import com.dantol.overseastoolkit.main.currency.database.ExchangeRateDao
+import com.dantol.overseastoolkit.main.emergency.database.EmergencyInfoDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -42,4 +43,7 @@ object ApplicationModule {
 
 	@Provides
 	fun provideExchangeRateDao(appDatabase: AppDatabase): ExchangeRateDao = appDatabase.exchangeRateDao
+
+	@Provides
+	fun provideEmergencyInfoDao(appDatabase: AppDatabase): EmergencyInfoDao = appDatabase.emergencyInfoDao
 }

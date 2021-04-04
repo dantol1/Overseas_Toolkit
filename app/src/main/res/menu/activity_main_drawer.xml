@@ -15,5 +15,10 @@
             android:icon="@drawable/ic_timezone"
             android:title="@string/menu_timezone" />
 
+        <item
+            android:id="@+id/nav_emergency_info"
+            android:icon="@drawable/ic_emergency"
+            android:title="@string/menu_emergency_info" />
+
     </group>
 </menu>

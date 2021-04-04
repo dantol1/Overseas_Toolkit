@@ -16,4 +16,14 @@
     <string name="select_time_zone">בחרו איזור זמן</string>
     <string name="local_time">זמן מקומי:</string>
     <string name="selected_time">זמן נבחר:</string>
+    <string name="menu_emergency_info">מידע חירום</string>
+    <string name="country_code_title">קוד מדינה:</string>
+    <string name="country_name_title">מדינה:</string>
+    <string name="ambulance_title">אמבולנס</string>
+    <string name="fire_dept_title">כיבוי אש:</string>
+    <string name="police_title">משטרה:</string>
+    <string name="dispatch_title">מוקד:</string>
+    <string name="dispatch_gsm_title">מוקד GSM:</string>
+    <string name="dispatch_fixed_title">מוקד קבוע:</string>
+    <string name="emergency_info_disclaimer">כתב ויתור: המידע מסופק ללא כל התחייבות לדיו\', שימוש במידע זה הינו להדרכה בלבד וכל שימוש בו הוא באחריותו האישית של המשתמש.</string>
 </resources>

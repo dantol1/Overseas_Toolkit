@@ -17,4 +17,10 @@
         android:label="@string/menu_timezone"
         tools:layout="@layout/timezone_fragment" />
 
+    <fragment
+        android:id="@+id/nav_emergency_info"
+        android:name="com.dantol.overseastoolkit.main.emergency.ui.EmergencyInfoFragment"
+        android:label="@string/menu_emergency_info"
+        tools:layout="@layout/emergency_info_fragment" />
+
 </navigation>

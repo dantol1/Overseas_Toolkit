@@ -13,7 +13,7 @@ import com.dantol.overseastoolkit.R
 import com.dantol.overseastoolkit.databinding.CurrencyFragmentBinding
 import com.dantol.overseastoolkit.main.currency.database.model.ExchangeRate
 import com.dantol.overseastoolkit.utils.Logger
-import com.dantol.overseastoolkit.utils.StateException
+import com.dantol.overseastoolkit.utils.NullViewStateException
 import com.skydoves.powerspinner.IconSpinnerAdapter
 import com.skydoves.powerspinner.IconSpinnerItem
 import com.skydoves.powerspinner.PowerSpinnerView
@@ -53,7 +53,7 @@ class CurrencyFragment : Fragment() {
 			}
 			renderView(state.viewState)
 		} else {
-			throw StateException("Error showing state $state from $TAG")
+			throw NullViewStateException("Error showing state $state from $TAG")
 		}
 	}
 

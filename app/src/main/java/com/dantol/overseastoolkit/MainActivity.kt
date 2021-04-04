@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
 			setOf(
 				R.id.nav_currency,
 				R.id.nav_timezone,
+				R.id.nav_emergency_info,
 			),
 			binding.drawerLayout
 		)

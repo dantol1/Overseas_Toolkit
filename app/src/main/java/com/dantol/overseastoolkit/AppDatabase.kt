@@ -6,12 +6,15 @@ import androidx.room.TypeConverters
 import com.dantol.overseastoolkit.main.currency.database.CurrencyDBConverter
 import com.dantol.overseastoolkit.main.currency.database.ExchangeRateDao
 import com.dantol.overseastoolkit.main.currency.database.model.ExchangeRate
+import com.dantol.overseastoolkit.main.emergency.database.EmergencyInfoDao
+import com.dantol.overseastoolkit.main.emergency.database.model.EmergencyInfo
 
 @Database(
 	entities = [
-		ExchangeRate::class
+		ExchangeRate::class,
+		EmergencyInfo::class
 	],
-	version = 1,
+	version = 3,
 	exportSchema = false
 )
 @TypeConverters(
@@ -19,4 +22,5 @@ import com.dantol.overseastoolkit.main.currency.database.model.ExchangeRate
 )
 abstract class AppDatabase : RoomDatabase() {
 	abstract val exchangeRateDao: ExchangeRateDao
+	abstract val emergencyInfoDao: EmergencyInfoDao
 }
