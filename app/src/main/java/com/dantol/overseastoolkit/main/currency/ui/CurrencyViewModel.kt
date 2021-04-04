@@ -2,6 +2,7 @@ package com.dantol.overseastoolkit.main.currency.ui
 
 import android.content.SharedPreferences
 import android.view.View
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -153,7 +154,7 @@ class CurrencyViewModel @Inject constructor(
 		if (amountString != null && fromCurrency != null && toCurrency != null) {
 			try {
 				val amount = amountString.toDouble()
-				val exchanged = amount * toCurrency.toEuroRate * (1 / fromCurrency.toEuroRate)
+				val exchanged = convertCurrency(amount, fromCurrency, toCurrency)
 				val viewState =
 					currencyFragmentState.value?.viewState?.copy(amountConverted = exchanged)
 
@@ -165,6 +166,9 @@ class CurrencyViewModel @Inject constructor(
 			}
 		}
 	}
+
+	@VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+	fun convertCurrency(amount: Double, fromCurrency: ExchangeRate, toCurrency: ExchangeRate) = amount * toCurrency.toEuroRate * (1 / fromCurrency.toEuroRate)
 
 	companion object {
 		private const val HTTP_OK = 200
