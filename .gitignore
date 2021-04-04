@@ -26,3 +26,5 @@ local.properties
 /.idea/misc.xml
 /.idea/codeStyles/Project.xml
 /settings.gradle
+/.idea/vcs.xml
+/.idea/dictionaries/daniel.xml

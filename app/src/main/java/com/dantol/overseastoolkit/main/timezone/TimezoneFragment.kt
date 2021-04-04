@@ -9,7 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.dantol.overseastoolkit.R
 import com.dantol.overseastoolkit.databinding.TimezoneFragmentBinding
+import com.skydoves.powerspinner.DefaultSpinnerAdapter
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class TimezoneFragment : Fragment() {
 
 	private val viewModel: TimezoneViewModel by viewModels()
@@ -21,7 +24,26 @@ class TimezoneFragment : Fragment() {
 		savedInstanceState: Bundle?
 	): View {
 		binding = DataBindingUtil.inflate(inflater, R.layout.timezone_fragment, container, false)
+		binding.apply {
+			localTime.title.setText(R.string.local_time)
+			localTime.clock.format24Hour = "HH:mm:ss"
+			selectedTime.title.setText(R.string.selected_time)
+			selectedTime.clock.format24Hour = "HH:mm:ss"
+		}
 
 		return binding.root
+	}
+
+	override fun onResume() {
+		super.onResume()
+		viewModel.getTimezones {
+			binding.timeZoneSelector.apply {
+				setSpinnerAdapter(DefaultSpinnerAdapter(this))
+				setItems(it.map { timezone -> timezone.displayName })
+				setOnSpinnerItemSelectedListener<String> { _, _, newIndex, _ ->
+					binding.selectedTime.clock.timeZone = it[newIndex].id
+				}
+			}
+		}
 	}
 }
