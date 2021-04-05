@@ -23,4 +23,10 @@
         android:label="@string/menu_emergency_info"
         tools:layout="@layout/emergency_info_fragment" />
 
+    <fragment
+        android:id="@+id/nav_about"
+        android:name="com.dantol.overseastoolkit.main.about.AboutFragment"
+        android:label="@string/menu_about"
+        tools:layout="@layout/about_fragment" />
+
 </navigation>

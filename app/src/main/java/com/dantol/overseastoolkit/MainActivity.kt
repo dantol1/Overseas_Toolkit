@@ -2,10 +2,10 @@ package com.dantol.overseastoolkit
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -39,6 +39,18 @@ class MainActivity : AppCompatActivity() {
 		)
 		setupActionBarWithNavController(navController!!, appBarConfiguration)
 		binding.navView.setupWithNavController(navController!!)
+	}
+
+	override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+		menuInflater.inflate(R.menu.menu, menu)
+		return super.onCreateOptionsMenu(menu)
+	}
+
+	override fun onOptionsItemSelected(item: MenuItem): Boolean {
+		when (item.itemId) {
+			R.id.menu_about -> navController?.navigate(R.id.nav_about)
+		}
+		return super.onOptionsItemSelected(item)
 	}
 
 	override fun onSupportNavigateUp(): Boolean {

@@ -37,4 +37,9 @@
         ${dispatch_gsm_title} %s\n
         ${dispatch_fixed_title} %s
     </string>
+    <string name="about" translatable="false">
+        <u>App Icons:</u>\n\n
+        Icons by - <a href="https://www.svgrepo.com/">https://www.svgrepo.com/</a>
+    </string>
+    <string name="menu_about">About</string>
 </resources>

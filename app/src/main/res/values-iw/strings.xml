@@ -26,4 +26,5 @@
     <string name="dispatch_gsm_title">מוקד GSM:</string>
     <string name="dispatch_fixed_title">מוקד קבוע:</string>
     <string name="emergency_info_disclaimer">כתב ויתור: המידע מסופק ללא כל התחייבות לדיו\', שימוש במידע זה הינו להדרכה בלבד וכל שימוש בו הוא באחריותו האישית של המשתמש.</string>
+    <string name="menu_about">אודות</string>
 </resources>
