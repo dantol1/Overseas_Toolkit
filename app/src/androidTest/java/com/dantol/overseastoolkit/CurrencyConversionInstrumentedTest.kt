@@ -24,14 +24,23 @@ class CurrencyConversionInstrumentedTest {
 	private lateinit var db: AppDatabase
 	private lateinit var exchangeRateDaoMock: ExchangeRateDao
 	private lateinit var okHttpClient: OkHttpClient
+	private lateinit var conversionViewModel: CurrencyViewModel
 
 
 	@Before
-	fun createDb() {
+	fun setup() {
 		contextMock = ApplicationProvider.getApplicationContext()
 		db = Room.inMemoryDatabaseBuilder(contextMock, AppDatabase::class.java).build()
 		exchangeRateDaoMock = db.exchangeRateDao
 		okHttpClient = OkHttpClient()
+		conversionViewModel = CurrencyViewModel(
+			okHttpClient = okHttpClient,
+			exchangeRateDao = exchangeRateDaoMock,
+			sharedPreferences = contextMock.getSharedPreferences(
+				OverseasApplication.SHARED_PREFERENCE_KEY,
+				Context.MODE_PRIVATE
+			)
+		)
 	}
 
 	@After
@@ -42,14 +51,6 @@ class CurrencyConversionInstrumentedTest {
 
 	@Test
 	fun conversionToEur_isCorrect() {
-		val conversionViewModel = CurrencyViewModel(
-            okHttpClient = okHttpClient,
-            exchangeRateDao = exchangeRateDaoMock,
-            sharedPreferences = contextMock.getSharedPreferences(
-                OverseasApplication.SHARED_PREFERENCE_KEY,
-                Context.MODE_PRIVATE
-            )
-        )
 		assertEquals(
             0.25,
             conversionViewModel.convertCurrency(
@@ -71,14 +72,6 @@ class CurrencyConversionInstrumentedTest {
 
 	@Test
 	fun conversionFromEur_isCorrect() {
-		val conversionViewModel = CurrencyViewModel(
-            okHttpClient = okHttpClient,
-            exchangeRateDao = exchangeRateDaoMock,
-            sharedPreferences = contextMock.getSharedPreferences(
-                OverseasApplication.SHARED_PREFERENCE_KEY,
-                Context.MODE_PRIVATE
-            )
-        )
 		assertEquals(
             4.0,
             conversionViewModel.convertCurrency(
@@ -100,14 +93,6 @@ class CurrencyConversionInstrumentedTest {
 
 	@Test
 	fun conversion_isCorrect() {
-		val conversionViewModel = CurrencyViewModel(
-            okHttpClient = okHttpClient,
-            exchangeRateDao = exchangeRateDaoMock,
-            sharedPreferences = contextMock.getSharedPreferences(
-                OverseasApplication.SHARED_PREFERENCE_KEY,
-                Context.MODE_PRIVATE
-            )
-        )
 		assertEquals(
             0.75,
             conversionViewModel.convertCurrency(
